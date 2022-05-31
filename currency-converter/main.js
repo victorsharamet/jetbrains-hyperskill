@@ -8,11 +8,11 @@ function currencyConverter() {
  }
  currencyConverter();
 
-/*
------ solutions -----
 
----1---
- const currencies = ['1 USD', '113.5 JPY', '0.89 EUR', '74.36 RUB', '0.75 GBP'];
+// ----- solutions -----
+
+// ---1---
+const currencies = ['1 USD', '113.5 JPY', '0.89 EUR', '74.36 RUB', '0.75 GBP'];
 const printCurrencies = (currencies) => {
   console.log('Welcome to Currency Converter!');
   currencies.forEach((currency) => {
@@ -20,10 +20,10 @@ const printCurrencies = (currencies) => {
   });
 };
 printCurrencies(currencies);
----/1---
+// ---/1---
 
----2---
- const currencies = {"USD": 1,
+// ---2---
+const currencies = {"USD": 1,
                     "JPY": 113.5,
                     "EUR": 0.89,
                     "RUB": 74.36,
@@ -35,9 +35,9 @@ function printingCurrencies(currencies){
     }
 }
 printingCurrencies(currencies);
----/2---
+// ---/2---
 
----3---
+// ---3---
 console.log("Welcome to Currency Converter!");
 let rates = [
     {"rate": 1, "symbol": "USD"},
@@ -49,10 +49,10 @@ let rates = [
 rates.forEach(e =>
     console.log(`1 USD equals  ${e.rate} ${e.symbol}`)
 );
----/3---
+// ---/3---
 
----4---
- main.js
+// ---4---
+// main.js
 const { CurrencyConverter } = require("./src/CurrencyConverter.js");
 const { ExchangeRateMap } = require("./src/ExchangeRateMap.js");
 const { Currency } = require("./src/Currency.js")
@@ -69,15 +69,15 @@ const currencyConverter = new CurrencyConverter(exchangeRateMap);
 console.log(welcomeMessage);
 console.log(`${currencyConverter}`);
 
-src/CurrencyConverter.js
+// src/CurrencyConverter.js
 /**
  *  Converts currencies based on ExchangeRate
- *_/
+ */
  class CurrencyConverter {
 
 	/**
 	 * @param{ExchangeRateMap} exchangeRateMap
-	 *_/
+	 */
 	constructor(exchangeRateMap) {
 		 this.exchangeRateMap = exchangeRateMap
 	}
@@ -86,7 +86,7 @@ src/CurrencyConverter.js
 	 * Returns a table of exchange rates
 	 * @override
 	 * @returns {string}
-	 *_/
+	 */
 	toString = () => {
 		 let result = [];
 		 for(const [_, currency] of this.exchangeRateMap.currenciesMap) {
@@ -95,14 +95,14 @@ src/CurrencyConverter.js
 		 return result.join("\n");
 	}
 }
-module.exports.CurrencyConverter = CurrencyConverter
+// module.exports.CurrencyConverter = CurrencyConverter
 
-src/Currency.js
+// src/Currency.js
 class Currency {
     /**
      * @param{string} symbol Currency symbol. ex: USD, JPY, EUR, etc
      * @param{number} ratePerDollar The amount of this currency one dollar can buy.
-     *_/
+     */
 	  constructor(symbol, ratePerDollar) {
 		this.symbol = symbol;
 		this.ratePerDollar = ratePerDollar;
@@ -110,20 +110,19 @@ class Currency {
 }
 module.exports.Currency = Currency
 
-src/ExchangeRateMap.js
+// src/ExchangeRateMap.js
 /**
  * Holds exchange rate values based on dollar as reference currency
- *_/
+ */
  class ExchangeRateMap {
 	/**
 	 * @param{Currency} currencies
-	 *_/
+	 */
 	constructor(...currencies) {
-		 /**@type {Map<string, Currency>} *_/
+		 /**@type {Map<string, Currency>} */
 		 this.currenciesMap = new Map()
 		 currencies.forEach(currency => this.currenciesMap.set(currency.symbol, currency))
 	}
 }
-module.exports.ExchangeRateMap = ExchangeRateMap
- ---/4---
- */
+// module.exports.ExchangeRateMap = ExchangeRateMap
+// ---/4---
