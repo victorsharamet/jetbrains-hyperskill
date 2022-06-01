@@ -12,10 +12,10 @@ function currencyConverter() {
 // ----- solutions -----
 
 // ---1---
-const currencies = ['1 USD', '113.5 JPY', '0.89 EUR', '74.36 RUB', '0.75 GBP'];
-const printCurrencies = (currencies) => {
+const currencies1 = ['1 USD', '113.5 JPY', '0.89 EUR', '74.36 RUB', '0.75 GBP'];
+const printCurrencies = (currencies1) => {
   console.log('Welcome to Currency Converter!');
-  currencies.forEach((currency) => {
+  currencies1.forEach((currency) => {
     console.log(`1 USD equals  ${currency}`);
   });
 };
